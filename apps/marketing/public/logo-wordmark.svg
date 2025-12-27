@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">Kudu Health Wordmark</title>
+  <desc id="desc">Solid teal pill with the words Kudu Health in white</desc>
+  <rect x="4" y="8" width="312" height="80" rx="20" ry="20" fill="#0F6D6A" />
+  <path d="M52 34h12v14.2L76 34h13l-15.5 16L89 66H76l-12-13.5V66H52V34Zm47 0h12v20.5c0 4.4 2.5 7 6.7 7 4.1 0 6.7-2.6 6.7-7V34h12v20.5C136.4 64 130 71 118.7 71c-11.4 0-19.7-7-19.7-16.5V34Zm58-0.7c10.7 0 18.3 7 18.3 17 0 10-7.6 17-18.3 17s-18.3-7-18.3-17c0-10 7.6-17 18.3-17Zm0 9.8c-3.8 0-6.6 2.8-6.6 7.2 0 4.4 2.8 7.2 6.6 7.2 3.8 0 6.6-2.8 6.6-7.2 0-4.4-2.8-7.2-6.6-7.2Zm29.8-9h12.5l6.8 19.6 6.7-19.6h12.4L219.2 66h-12.6l-13-32.9Z" fill="#ffffff" />
+</svg>

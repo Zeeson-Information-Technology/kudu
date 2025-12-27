@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Kudu Health Favicon</title>
+  <desc id="desc">Flat teal square with a stylized white K</desc>
+  <rect width="64" height="64" fill="#0F6D6A" rx="12" ry="12" />
+  <rect x="18" y="14" width="10" height="36" fill="#ffffff" />
+  <polygon points="32,30 48,18 56,18 42,32 32,32" fill="#ffffff" />
+  <polygon points="40,34 48,42 40,50 32,42" fill="#ffffff" />
+  <polygon points="38,46 52,58 36,58" fill="#ffffff" />
+</svg>

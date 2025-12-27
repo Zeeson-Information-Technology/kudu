@@ -1,0 +1,29 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+.next
+**/.next
+out
+dist
+
+# Vercel / Turborepo
+.vercel
+.turbo
+
+# Env files
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Logs & OS
+*.log
+.DS_Store
+
+# pnpm
+.pnpm-store
+
+# Coverage
+coverage
