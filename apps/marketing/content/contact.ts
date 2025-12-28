@@ -6,9 +6,5 @@ export const contactContent = {
   email: "hello@kudu.health",
   emailCtaText: "Email hello@kudu.health",
   expectationsTitle: "What to expect",
-  notes: [
-    "We respond within one business day and can share a short briefing deck.",
-    "No third-party forms—contact is direct until the consent-aware API is ready.",
-    "Technical documentation is available for facility IT leads on request."
-  ]
+  notes: ["Our team responds promptly and tailors answers to your inquiry."]
 };
