@@ -31,5 +31,5 @@ export const site = {
     { label: "Instagram", href: "https://instagram.com/kuduhealth", icon: "instagram" }
   ],
   rights: "All rights reserved.",
-  footerNote: "Built for Kaduna and Nigerian public primary care, with clinicians in control."
+  footerNote: "Built for Nigerian public and private primary care, with clinicians in control."
 };
