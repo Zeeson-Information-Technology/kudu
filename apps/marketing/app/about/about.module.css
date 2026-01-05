@@ -1,0 +1,43 @@
+/* Scoped styles for the About page to avoid affecting global hero styles */
+.aboutHero .hero-title {
+  text-align: center;
+}
+
+.aboutHero .hero-description {
+  text-align: center;
+}
+
+.aboutHeroMain {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+.aboutCtaMain {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.aboutCta {
+  display: block;
+  text-align: center;
+}
+
+.aboutCta .cta-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.aboutCta .cta-buttons .button {
+  margin: 0 auto;
+}
+
+/* Strongly scoped buttons container to avoid global overrides */
+.aboutCtaButtons {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  width: 100%;
+}

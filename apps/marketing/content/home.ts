@@ -1,7 +1,7 @@
 export const homeHero = {
-  title: "Offline-first primary healthcare platform",
+  title: "Kudu — AI-powered, offline health system for Africa",
   description:
-    "Kudu Health is a digital health system for primary care delivery that keeps registration, consultations, and clinical records available when connectivity is weak, with consent, auditability, and continuity built in.",
+    "Kudu Health Africa empowers providers, patients, and policymakers with actionable, privacy-first health data. Combining cutting-edge technology and healthcare expertise, our platform delivers secure, compliant solutions tailored to Africa’s unique healthcare challenges.",
   primaryCta: { label: "Contact the team", href: "/contact" },
   secondaryCta: { label: "Learn about the system", href: "/about" }
 };

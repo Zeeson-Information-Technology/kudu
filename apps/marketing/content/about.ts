@@ -1,52 +1,62 @@
 export const aboutHero = {
   title: "About Kudu Health",
   intro:
-    "We're building an offline-first primary healthcare platform for Nigeria, designed to ensure care continues uninterrupted while aligning with national digital health standards."
+    "Kudu Health empowers providers, patients, and policymakers with a secure, offline-capable, and interoperable digital health platform aligned to national standards."
+};
+
+export const aboutOverview = {
+  title: "About Kudu Health",
+  content:
+    "Kudu Health is a digital health infrastructure company enabling secure, interoperable, and scalable health systems. Serving primary and secondary care with plans to scale to tertiary care, our offline-first solution connects patients, providers, insurers, and governments through shared standards, trusted identities, and secure data exchange. Our work supports continuity of care, efficient health financing, and evidence-based decision-making. Kudu Health is built on the belief that strong health systems require strong digital foundations."
+};
+
+export const aboutWhatWeDo = {
+  title: "What We Do",
+  bullets: [
+    "Unified patient identity across facilities and systems",
+    "Secure exchange of health data using international standards",
+    "Digitized and standardized health insurance claims workflows",
+    "Verified registries for health facilities and healthcare workers",
+    "Consent-driven access, privacy protection, and full auditability"
+  ],
+  summary:
+    "Rather than replacing existing hospital or insurance systems, Kudu Health connects them — allowing governments and institutions to modernize healthcare delivery without disruption."
+};
+
+export const aboutDesigned = {
+  title: "Designed for National Scale",
+  content:
+    "Kudu Health provides a scalable, secure, and adaptable digital health platform that connects millions of users and stakeholders. Designed for diverse policies and technologies, it ensures reliable, compliant care delivery, especially reaching underserved and remote communities."
+};
+
+export const aboutStandards = {
+  title: "Standards, Security, and Trust",
+  content:
+    "Interoperability and trust are at the core of Kudu Health. Our platform follows global digital health standards, with built-in patient consent, role-based access, encryption, and audit trails, ensuring regulatory compliance while protecting patient rights and institutional accountability."
 };
 
 export const aboutStory = {
   title: "Our Story",
   content:
-    "Kudu Health was founded to address the fundamental challenge of digital health in Nigeria's primary care facilities: how to deliver reliable healthcare when internet connectivity cannot be guaranteed. Drawing from extensive experience working with Nigerian health systems, our team recognized that many digital tools fail at the critical moment—during network outages—leaving clinicians without essential patient information and forcing a return to paper records. We built Kudu Health as an offline-first platform that prioritizes continuity of care while remaining fully aligned with Nigeria's National Digital Health Architecture (NDHA) and National Enterprise Architecture frameworks."
+    "Kudu Health was founded to address a fundamental challenge in Nigeria’s healthcare system. Through extensive hands-on experience working with primary and secondary healthcare facilities across Nigeria, our team observed a recurring failure in many digital health initiatives: systems designed to modernize care often broke down at the most critical moments during network outages, leaving clinicians without access to patient information and forcing a return to paper records. Our offline-first platform keeps patient records, workflows, and essential services accessible at all times, securely storing data locally and syncing seamlessly when connectivity is restored. It is built in alignment with Nigeria’s National Digital Health Architecture and the National Enterprise Architecture framework to ensure compatibility with national health priorities."
 };
 
-export const aboutProblem = {
+export const aboutChallenge = {
   title: "The Challenge",
-  description:
-    "Primary health centers across Nigeria operate in environments where internet connectivity is unreliable or unavailable. Traditional digital health tools often fail during outages, disrupting patient care and forcing clinicians to maintain parallel paper records. This creates inefficiencies, increases the risk of data loss, and undermines the trust and accountability that digital systems are meant to provide. At the same time, national health information systems require standardized, interoperable data that local facilities struggle to consistently provide.",
-  stats: [
-    "Over 70% of Nigerian health facilities experience regular connectivity issues",
-    "Paper-based records lead to data loss and inefficiencies in care delivery",
-    "National health systems struggle with interoperability and real-time data access"
-  ]
+  content:
+    "Digital health systems in Nigeria often fail during network outages and lack interoperability, limiting continuity of care and coordination across providers, insurers, and government institutions. Kudu Health solves this with offline functionality, secure local storage, seamless synchronization, and full interoperability, enabling smooth use across all healthcare levels and key stakeholders."
 };
 
 export const aboutMission = {
   title: "Our Mission",
   statement:
-    "To provide Nigerian primary care facilities with an offline-first digital platform that ensures continuity of care, respects patient privacy, and creates reliable data foundations for national health system integration."
+    "Our mission is to deliver a robust, offline-capable, and interoperable digital health platform that aligns with Nigeria’s national health architecture. We connect hospitals, labs, insurers, and other health stakeholders through secure APIs, enabling better care delivery, data-driven decisions, and improved health outcomes across Africa."
 };
 
-export const aboutValues = {
-  title: "Our Values",
-  items: [
-    {
-      title: "Patient-Centered",
-      detail: "Every feature prioritizes patient trust, consent, and privacy while ensuring care is never denied due to technical limitations."
-    },
-    {
-      title: "Clinician-First",
-      detail: "We design tools that adapt to actual clinical workflows, with clinicians maintaining full control over patient care decisions."
-    },
-    {
-      title: "Reliable & Resilient",
-      detail: "Offline-first architecture ensures healthcare delivery continues uninterrupted, regardless of connectivity challenges."
-    },
-    {
-      title: "Standards-Aligned",
-      detail: "Built to integrate with national digital health frameworks, supporting rather than competing with established systems."
-    }
-  ]
+export const aboutVision = {
+  title: "Our Vision",
+  statement:
+    "To transform healthcare in Africa — especially in low- and middle-income countries — by creating a fully connected, secure, and intelligent digital health ecosystem that empowers providers, patients, and policymakers with actionable health data anytime, anywhere."
 };
 
 export const aboutTeam = {
@@ -72,42 +82,6 @@ export const aboutTeam = {
       name: "Chioma Nnamani",
       role: "Product Manager",
       bio: "Healthcare product strategist focused on user-centered design and translating clinical needs into innovative digital health solutions."
-    }
-  ]
-};
-
-export const aboutImpact = {
-  title: "Our Impact",
-  description: "Since our pilot launch, we've made measurable improvements in healthcare delivery.",
-  metrics: [
-    { number: "5+", label: "Pilot facilities onboarded" },
-    { number: "1000+", label: "Patient records digitized" },
-    { number: "95%", label: "Uptime during connectivity outages" }
-  ]
-};
-
-export const aboutApproach = {
-  title: "How We Build",
-  items: [
-    {
-      title: "Clinician-in-Control",
-      detail:
-        "Workflows mirror real PHC operations, with AI serving only as an assistive tool requiring explicit clinician approval and maintaining full audit trails."
-    },
-    {
-      title: "Offline-First by Design",
-      detail:
-        "Continuity of care comes before connectivity. Local patient identification and records work seamlessly offline, with national system integration following NDHTO certification paths."
-    },
-    {
-      title: "Standards-Ready Architecture",
-      detail:
-        "Built to align with NDHA principles and National Enterprise Architecture, ensuring local systems support national interoperability rather than creating parallel infrastructure."
-    },
-    {
-      title: "Proven, Scalable Stack",
-      detail:
-        "Next.js frontend, MongoDB Atlas backend, and PouchDB/CouchDB synchronization provide robust offline capabilities with enterprise-grade reliability."
     }
   ]
 };

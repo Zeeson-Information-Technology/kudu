@@ -196,25 +196,31 @@ button:focus-visible {
 --------------------- */
 
 .hero {
-  padding: 3.5rem 0 2.5rem;
+  padding: 2.5rem 0 1.5rem;
 }
 
 .hero-grid {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 2rem;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.75rem;
   align-items: center;
 }
-
 .hero-main {
   background: transparent;
   border: 0;
   padding: 0;
   box-shadow: none;
+  text-align: left;
+  max-width: 680px;
+}
+
+.hero--centered .hero-main {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-eyebrow {
@@ -231,23 +237,26 @@ button:focus-visible {
 }
 
 .hero-title {
-  font-size: clamp(2.1rem, 3.4vw, 3rem);
-  margin: 0 0 0.8rem;
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  margin: 0 0 0.6rem;
   letter-spacing: -0.03em;
-  text-align: center;
 }
 
 .hero-description {
-  margin: 0 0 1.35rem;
+  margin: 0 0 1rem;
   color: var(--color-muted);
-  font-size: 1.08rem;
-  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .cta-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+.cta-buttons.hero-ctas--centered {
   justify-content: center;
 }
 
@@ -267,16 +276,37 @@ button:focus-visible {
 
 .hero-figure {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .hero-figure__image {
   width: 100%;
-  max-width: 520px;
+  max-width: 1100px;
   height: auto;
   display: block;
+  object-fit: contain;
   filter: drop-shadow(0 18px 40px rgba(13, 27, 42, 0.1));
+}
+
+/* Responsive: stack and center on small screens */
+@media (max-width: 767px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .hero-main {
+    text-align: center;
+  }
+  .hero-figure {
+    justify-content: center;
+  }
+  .hero-figure__image {
+    max-width: 520px;
+  }
+  .cta-buttons {
+    justify-content: center;
+  }
 }
 
 /* --------------------
@@ -697,6 +727,43 @@ button:focus-visible {
   font-weight: 500;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.card--vision {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.1) 100%);
+  border: 2px solid rgba(6, 182, 212, 0.18);
+  position: relative;
+  max-width: 900px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card--vision::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #06b6d4, #0f6d6a);
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0.08;
+}
+
+.card--vision:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(6, 182, 212, 0.14) 100%);
+  border-color: rgba(6, 182, 212, 0.28);
+}
+
+.card--vision p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .card--team {

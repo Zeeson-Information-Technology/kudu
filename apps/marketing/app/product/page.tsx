@@ -75,7 +75,7 @@ export default function ProductPage() {
       <Section title={productCta.title}>
         <div className="hero-main hero-main--cta">
           <p className="hero-description">{productCta.description}</p>
-          <div className="cta-buttons">
+          <div className="cta-buttons hero-ctas--centered">
             <Link href={productCta.button.href} className="button primary">
               {productCta.button.label}
             </Link>

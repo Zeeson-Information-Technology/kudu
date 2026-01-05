@@ -20,7 +20,7 @@ export default function CareersPage() {
         <div className="hero-main">
           <h1 className="hero-title">{careersContent.hero.title}</h1>
           <p className="hero-description">{careersContent.hero.description}</p>
-          <div className="cta-buttons">
+          <div className="cta-buttons hero-ctas--centered">
             <a href="#positions" className="button primary">
               {careersContent.hero.cta}
             </a>
@@ -107,7 +107,7 @@ export default function CareersPage() {
                 If you are passionate about healthcare technology and want to be considered for
                 future opportunities, we would love to hear from you.
               </p>
-              <div className="cta-buttons">
+              <div className="cta-buttons hero-ctas--centered">
                 <Link href="/contact" className="button primary">
                   Get in Touch
                 </Link>
@@ -133,7 +133,7 @@ export default function CareersPage() {
       {/* CTA Section */}
       <Section title={careersContent.cta.title}>
         <p className="section-lead">{careersContent.cta.description}</p>
-        <div className="cta-buttons">
+        <div className="cta-buttons hero-ctas--centered">
           <Link href="/contact" className="button primary">
             {careersContent.cta.primaryCta}
           </Link>
