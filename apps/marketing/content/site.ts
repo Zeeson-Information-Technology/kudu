@@ -1,6 +1,6 @@
 export const site = {
   name: "Kudu Health",
-  tagline: "Offline-first primary healthcare platform for Nigeria.",
+  tagline: "AI-powered, offline health system for Africa",
   description:
     "Kudu Health helps public primary health centres deliver safe, reliable care even when the network is down. Offline-first workflows, local patient IDs, and auditable AI support clinicians without denying care.",
   baseUrl: "https://kudu.health",
