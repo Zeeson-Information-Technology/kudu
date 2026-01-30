@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getDb } from "../../src/lib/offline/db";
+import Link from "next/link";
+import { getDb, startSync } from "../../src/lib/offline/db";
 import type { FacilityDoc, LocalUserDoc } from "../../src/lib/offline/schema";
 import { createFacilityDocId } from "../../src/lib/offline/schema";
 import { getSession, setSession } from "../../src/lib/session";
@@ -16,6 +17,9 @@ export default function LoginPage() {
   const [facilities, setFacilities] = useState<FacilityRecord[]>([]);
   const [users, setUsers] = useState<LocalUserRecord[]>([]);
   const [error, setError] = useState("");
+  const [step, setStep] = useState<"facility" | "user">("facility");
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedFacilityId, setSelectedFacilityId] = useState<string>("");
 
   useEffect(() => {
     const session = getSession();
@@ -24,10 +28,15 @@ export default function LoginPage() {
       return;
     }
 
-    const load = async () => {
-      const db = await getDb();
+    let changes: any;
+    let loadingTimer: ReturnType<typeof setTimeout> | null = null;
+    setIsLoading(true);
+
+    const loadFacilities = async (dbOverride?: Awaited<ReturnType<typeof getDb>>) => {
+      const db = dbOverride ?? (await getDb());
       if (!db) {
         setError("Offline database is not available in this environment.");
+        setIsLoading(false);
         return;
       }
 
@@ -43,11 +52,17 @@ export default function LoginPage() {
           .sort((a, b) => a.name.localeCompare(b.name));
 
         setFacilities(facilityDocs);
-        const primaryFacility = facilityDocs[0] ?? null;
-        setFacility(primaryFacility);
+        const nextSelected =
+          facilityDocs.find((doc) => doc.facilityId === selectedFacilityId) ??
+          facilityDocs[0] ??
+          null;
+        setFacility(nextSelected);
+        setSelectedFacilityId(nextSelected?.facilityId ?? "");
 
-        if (!primaryFacility) {
+        if (!nextSelected) {
           setUsers([]);
+          setStep("facility");
+          setIsLoading(false);
           return;
         }
 
@@ -63,27 +78,80 @@ export default function LoginPage() {
             (doc): doc is LocalUserRecord =>
               !!doc &&
               doc.type === "localUser" &&
-              doc.facilityId === primaryFacility.facilityId &&
+              doc.facilityId === nextSelected.facilityId &&
               !doc.disabled
           )
           .sort((a, b) => a.displayName.localeCompare(b.displayName));
 
         setUsers(userDocs);
+        if (facilityDocs.length === 1) {
+          setStep("user");
+        }
       } catch (loadError) {
         setError("Unable to load facility users.");
+      } finally {
+        setIsLoading(false);
+        if (loadingTimer) {
+          clearTimeout(loadingTimer);
+          loadingTimer = null;
+        }
+      }
+    };
+
+    const load = async () => {
+      loadingTimer = setTimeout(() => {
+        setIsLoading(false);
+        setError("Sync is taking longer than expected. You can still create a facility.");
+      }, 8000);
+
+      const db = await getDb();
+      if (!db) {
+        setError("Offline database is not available in this environment.");
+        setIsLoading(false);
+        return;
+      }
+
+      await loadFacilities(db);
+
+      try {
+        startSync().catch(() => {
+          setError("Sync is unavailable. Showing local facilities only.");
+        });
+      } catch (syncError) {
+        setError("Sync is unavailable. Showing local facilities only.");
+      }
+
+      try {
+        changes = db.changes({ since: "now", live: true });
+        changes.on("change", () => {
+          loadFacilities(db);
+        });
+      } catch (changeError) {
+        // Ignore changes feed errors.
       }
     };
 
     load();
+
+    return () => {
+      if (changes && typeof changes.cancel === "function") {
+        changes.cancel();
+      }
+      if (loadingTimer) {
+        clearTimeout(loadingTimer);
+      }
+    };
   }, [router]);
 
   const handleFacilityChange = async (facilityId: string) => {
     const nextFacility = facilities.find((doc) => doc.facilityId === facilityId) ?? null;
     setFacility(nextFacility);
+    setSelectedFacilityId(facilityId);
 
     const db = await getDb();
     if (!db || !nextFacility) {
       setUsers([]);
+      setStep("facility");
       return;
     }
 
@@ -105,6 +173,7 @@ export default function LoginPage() {
       .sort((a, b) => a.displayName.localeCompare(b.displayName));
 
     setUsers(userDocs);
+    setStep("user");
   };
 
   const handleSelectUser = (user: LocalUserRecord) => {
@@ -121,6 +190,7 @@ export default function LoginPage() {
     });
     router.push("/dashboard");
   };
+
 
   const facilityOptions = useMemo(() => facilities, [facilities]);
 
@@ -152,14 +222,27 @@ export default function LoginPage() {
           </div>
         </div>
         <div className="auth-card auth-card--wide">
-          <h1 id="login-title">Select a user</h1>
+          <h1 id="login-title">{step === "facility" ? "Choose a facility" : "Select a user"}</h1>
           <p>
-            This device may be shared. Choose who is using it now to start a secure, auditable
-            session.
+            {step === "facility"
+              ? "Select the facility this device is working with."
+              : "This device may be shared. Choose who is using it now to start a secure, auditable session."}
           </p>
 
-        {facilityOptions.length > 1 ? (
-          <div className="form-field">
+        {isLoading ? (
+          <div className="auth-loading" style={{ marginTop: "1.5rem" }}>
+            <div className="auth-loader">
+              <img src="/brand/loader-mark.svg" alt="" aria-hidden="true" />
+            </div>
+            <div>
+              <h3>Loading facilities...</h3>
+              <p className="form-helper">Syncing offline data with the facility database.</p>
+            </div>
+          </div>
+        ) : null}
+
+        {!isLoading && facilityOptions.length > 0 ? (
+          <div className="form-field" style={{ marginTop: "1.5rem" }}>
             <label className="form-label" htmlFor="facility">
               Facility
             </label>
@@ -167,7 +250,7 @@ export default function LoginPage() {
               className="form-select"
               id="facility"
               name="facility"
-              value={facility?.facilityId ?? ""}
+              value={selectedFacilityId || facility?.facilityId || ""}
               onChange={(event) => handleFacilityChange(event.target.value)}
             >
               {facilityOptions.map((item) => (
@@ -177,20 +260,21 @@ export default function LoginPage() {
               ))}
             </select>
           </div>
-        ) : facility ? (
-          <div className="profile-grid" style={{ marginBottom: "1.5rem" }}>
-            <div>
-              <p className="profile-label">Facility</p>
-              <p className="profile-value">{facility.name}</p>
-            </div>
-            <div>
-              <p className="profile-label">Facility ID</p>
-              <p className="profile-value">{facility.facilityId}</p>
-            </div>
+        ) : null}
+
+        {!isLoading && facilityOptions.length > 0 && step === "facility" ? (
+          <div style={{ marginTop: "1.5rem" }}>
+            <button
+              className="button primary"
+              type="button"
+              onClick={() => setStep("user")}
+            >
+              Continue
+            </button>
           </div>
         ) : null}
 
-        {facility ? (
+        {!isLoading && facility ? (
           <div className="staff-card">
             <div className="staff-card__header">
               <h2>Active staff</h2>
@@ -198,7 +282,7 @@ export default function LoginPage() {
             </div>
             {users.length === 0 ? (
               <p className="form-helper">
-                No users found. Add staff from the Facility Admin page.
+                No users found. Staff can join this facility with a join code.
               </p>
             ) : (
               <ul className="staff-list">
@@ -222,12 +306,29 @@ export default function LoginPage() {
                 ))}
               </ul>
             )}
+            <div style={{ marginTop: "1rem" }}>
+              <Link className="button secondary" href="/onboarding/join">
+                Join this facility
+              </Link>
+              {step === "user" ? (
+                <button
+                  className="button ghost"
+                  type="button"
+                  onClick={() => setStep("facility")}
+                  style={{ marginLeft: "0.75rem" }}
+                >
+                  Change facility
+                </button>
+              ) : null}
+            </div>
           </div>
-        ) : (
+        ) : null}
+
+        {!isLoading && facilityOptions.length === 0 ? (
           <p className="form-helper">
             No facility found. Create a facility to begin onboarding.
           </p>
-        )}
+        ) : null}
 
         {error ? (
           <p className="form-helper" role="status" style={{ marginTop: "1rem" }}>
@@ -235,23 +336,19 @@ export default function LoginPage() {
           </p>
         ) : null}
 
-        {!facility ? (
+        {!isLoading && facilityOptions.length === 0 ? (
           <div style={{ marginTop: "1.5rem" }}>
-            <button
-              className="button primary"
-              type="button"
-              onClick={() => router.push("/onboarding/create-facility")}
-            >
+            <Link className="button primary" href="/onboarding/create-facility">
               Create facility
-            </button>
+            </Link>
           </div>
         ) : null}
 
-          <div className="auth-footer">
-            <p className="form-helper">
-              Need access? Ask a facility admin to share the join code.
-            </p>
-          </div>
+        <div className="auth-footer">
+          <p className="form-helper">
+            Need access? Ask a facility admin to share the join code.
+          </p>
+        </div>
         </div>
       </section>
     </main>
