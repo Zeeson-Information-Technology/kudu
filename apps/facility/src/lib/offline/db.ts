@@ -55,6 +55,14 @@ export const getDb = async () => {
   return dbInstance;
 };
 
+export const resetLocalDb = async () => {
+  if (!dbInstance) {
+    return;
+  }
+  await dbInstance.destroy();
+  dbInstance = null;
+};
+
 export const getRemoteDb = async () => {
   if (typeof window === "undefined") {
     return null;
