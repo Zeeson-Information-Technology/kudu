@@ -97,6 +97,9 @@ const audienceIcons: Record<string, JSX.Element> = {
 };
 
 export default function HomePage() {
+  const facilityUrl =
+    process.env.NEXT_PUBLIC_FACILITY_APP_URL ?? "https://facility.kudu.health";
+
   return (
     <>
       <section className="hero">
@@ -114,9 +117,15 @@ export default function HomePage() {
               <Link href={homeHero.primaryCta.href} className="button primary">
                 {homeHero.primaryCta.label}
               </Link>
-              <Link href={homeHero.secondaryCta.href} className="button secondary">
+              <a
+                className="button secondary"
+                href={`${facilityUrl}/login`}
+                data-tooltip="For registered health facilities and staff"
+                target="_blank"
+                rel="noreferrer"
+              >
                 {homeHero.secondaryCta.label}
-              </Link>
+              </a>
             </div>
           </div>
 

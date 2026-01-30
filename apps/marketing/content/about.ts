@@ -69,7 +69,7 @@ export const aboutTeam = {
       bio: "Experienced software engineer specializing in B2G solutions, with deep expertise in building scalable digital health platforms for government and enterprise clients."
     },
     {
-      name: "Abubakar Jamiu",
+      name: "Abubakar Jamiu (MBA)",
       role: "Health Operations",
       bio: "Healthcare operations specialist with extensive experience in managing clinical workflows and implementing digital health solutions in Nigerian facilities."
     },
@@ -79,8 +79,8 @@ export const aboutTeam = {
       bio: "Dynamic professional combining healthcare operations expertise with sales acumen to drive adoption of innovative health technologies across markets."
     },
     {
-      name: "Chioma Nnamani",
-      role: "Product Manager",
+      name: "Dotun Brown (PhD in view)",
+      role: "Product Strategy",
       bio: "Healthcare product strategist focused on user-centered design and translating clinical needs into innovative digital health solutions."
     }
   ]

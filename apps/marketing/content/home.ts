@@ -3,7 +3,7 @@ export const homeHero = {
   description:
     "Kudu Health Africa empowers providers, patients, and policymakers with actionable, privacy-first health data. Combining cutting-edge technology and healthcare expertise, our platform delivers secure, compliant solutions tailored to Africa’s unique healthcare challenges.",
   primaryCta: { label: "Contact the team", href: "/contact" },
-  secondaryCta: { label: "Learn about the system", href: "/about" }
+  secondaryCta: { label: "Facility Login", href: "/login" }
 };
 
 /* --------------------
