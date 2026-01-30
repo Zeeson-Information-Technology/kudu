@@ -125,11 +125,38 @@ export default function LoginPage() {
   const facilityOptions = useMemo(() => facilities, [facilities]);
 
   return (
-    <main className="auth-shell" role="main">
-      <section className="auth-card" aria-labelledby="login-title">
-        <img src="/brand/kudu-health-dark.svg" alt="Kudu Health" className="auth-logo" />
-        <h1 id="login-title">Select a user</h1>
-        <p>Choose who is using this device for the current session.</p>
+    <main className="auth-shell auth-shell--premium" role="main">
+      <section className="auth-layout" aria-labelledby="login-title">
+        <div className="auth-panel">
+          <div className="auth-panel__brand-band">
+            <div className="auth-panel__brand">
+              <img
+                src="/brand/logo-lockup.png"
+                alt="Kudu Health"
+                className="auth-logo auth-logo--panel"
+              />
+              <span className="auth-panel__badge">Facility App</span>
+            </div>
+          </div>
+          <p className="auth-panel__subtitle">
+            Offline-first primary care workflows with secure local records and auditable activity.
+          </p>
+          <div className="auth-meta">
+            <span className="auth-pill">Offline-first</span>
+            <span className="auth-pill">NHIA / NDPR aligned</span>
+          </div>
+          <div className="auth-panel__footer">
+            <p className="form-helper">
+              Designed for shared devices in low‑connectivity settings.
+            </p>
+          </div>
+        </div>
+        <div className="auth-card auth-card--wide">
+          <h1 id="login-title">Select a user</h1>
+          <p>
+            This device may be shared. Choose who is using it now to start a secure, auditable
+            session.
+          </p>
 
         {facilityOptions.length > 1 ? (
           <div className="form-field">
@@ -165,6 +192,10 @@ export default function LoginPage() {
 
         {facility ? (
           <div className="staff-card">
+            <div className="staff-card__header">
+              <h2>Active staff</h2>
+              <span className="tag">Shared device</span>
+            </div>
             {users.length === 0 ? (
               <p className="form-helper">
                 No users found. Add staff from the Facility Admin page.
@@ -215,6 +246,13 @@ export default function LoginPage() {
             </button>
           </div>
         ) : null}
+
+          <div className="auth-footer">
+            <p className="form-helper">
+              Need access? Ask a facility admin to share the join code.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
   );
