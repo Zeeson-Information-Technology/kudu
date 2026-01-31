@@ -182,11 +182,11 @@ export default function CreateFacilityPage() {
                 {joinCode}
               </p>
               <div className="actions-row" style={{ marginTop: "1rem" }}>
-                <button className="button secondary" type="button" onClick={handleCopy}>
+                <button className="button secondary table-action" type="button" onClick={handleCopy}>
                   Copy
                 </button>
                 <button
-                  className="button primary"
+                  className="button primary patient-cta"
                   type="button"
                   onClick={() => router.push("/dashboard")}
                 >
@@ -328,7 +328,7 @@ export default function CreateFacilityPage() {
               </p>
             ) : null}
             <div style={{ marginTop: "1.5rem" }}>
-              <button className="button primary" type="submit">
+              <button className="button primary patient-cta" type="submit">
                 Create facility
               </button>
             </div>

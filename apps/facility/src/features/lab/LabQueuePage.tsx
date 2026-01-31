@@ -146,7 +146,7 @@ export default function LabQueuePage() {
                       <td>{order.tests.join(", ")}</td>
                       <td>{order.status}</td>
                       <td>
-                        <Link className="button secondary" href={`/dashboard/lab/orders/${order.orderId}`}>
+                        <Link className="button secondary table-action" href={`/dashboard/lab/orders/${order.orderId}`}>
                           View
                         </Link>
                       </td>

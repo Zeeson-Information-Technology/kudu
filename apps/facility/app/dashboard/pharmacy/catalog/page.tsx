@@ -396,11 +396,6 @@ export default function DrugCatalogPage() {
         <p className="page-subtitle">
           Update unit prices weekly. These values are stored locally and used in prescriptions.
         </p>
-        <div style={{ marginTop: "1rem" }}>
-          <button className="button secondary" type="button" onClick={seedDefaults}>
-            Restore default list
-          </button>
-        </div>
       </div>
 
       <div className="card" style={{ marginTop: "1.5rem" }}>
@@ -413,7 +408,7 @@ export default function DrugCatalogPage() {
             </p>
           </div>
           <button
-            className="button secondary"
+            className={`button ${showAddForm ? "secondary" : "primary"} catalog-cta`}
             type="button"
             onClick={() => setShowAddForm((prev) => !prev)}
           >
@@ -651,7 +646,11 @@ export default function DrugCatalogPage() {
                       </select>
                     </td>
                     <td>
-                      <button className="button secondary" type="button" onClick={() => saveRow(row.drugId)}>
+                      <button
+                        className="button secondary table-action"
+                        type="button"
+                        onClick={() => saveRow(row.drugId)}
+                      >
                         Save
                       </button>
                     </td>

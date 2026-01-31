@@ -217,11 +217,15 @@ export default function PatientRegistrationForm() {
           <div className="actions-row" style={{ marginTop: "1.5rem" }}>
             <Link
               href={`/dashboard/patients/${referenceId}?registered=1`}
-              className="button primary no-print"
+              className="button primary patient-cta no-print"
             >
               Open patient profile
             </Link>
-            <button className="button secondary no-print" type="button" onClick={handleReset}>
+            <button
+              className="button secondary table-action no-print"
+              type="button"
+              onClick={handleReset}
+            >
               Register another patient
             </button>
           </div>
@@ -419,7 +423,11 @@ export default function PatientRegistrationForm() {
           ) : null}
 
           <div style={{ marginTop: "1.5rem" }}>
-            <button className="button primary" type="submit" ref={submitButtonRef}>
+            <button
+              className="button primary patient-cta"
+              type="submit"
+              ref={submitButtonRef}
+            >
               Create record
             </button>
           </div>
@@ -477,7 +485,7 @@ export default function PatientRegistrationForm() {
           </div>
           <div className="actions-row terms-modal__actions">
             <button
-              className="button secondary"
+              className="button secondary table-action"
               type="button"
               onClick={() => {
                 setShowTerms(false);
@@ -487,7 +495,7 @@ export default function PatientRegistrationForm() {
               Cancel
             </button>
             <button
-              className="button primary"
+              className="button primary patient-cta"
               type="button"
               onClick={() => {
                 if (!termsAccepted) {

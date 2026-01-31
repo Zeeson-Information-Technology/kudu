@@ -292,7 +292,7 @@ export default function OpdRegisterPage() {
               placeholder="Filter later"
             />
           </div>
-          <button className="button secondary" type="button" onClick={handleExport}>
+          <button className="button secondary table-action" type="button" onClick={handleExport}>
             Export CSV
           </button>
         </div>

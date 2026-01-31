@@ -330,7 +330,11 @@ export default function FacilityAdminPage() {
         </td>
           <td>
             <div className="actions-row">
-              <button className="button secondary" type="button" onClick={() => saveUser(user)}>
+              <button
+                className="button secondary table-action"
+                type="button"
+                onClick={() => saveUser(user)}
+              >
                 {state === "saving" ? "Saving..." : "Save"}
               </button>
               <button className="button ghost" type="button" onClick={() => toggleDisabled(user.userId)}>
@@ -363,7 +367,7 @@ export default function FacilityAdminPage() {
             <h2 id="facility-title">Facility settings</h2>
             <p>{loadError}</p>
             <div style={{ marginTop: "1.5rem" }}>
-              <Link href="/onboarding" className="button secondary">
+              <Link href="/onboarding" className="button secondary table-action">
                 Go to onboarding
               </Link>
             </div>
@@ -433,7 +437,11 @@ export default function FacilityAdminPage() {
             </p>
           ) : null}
           <div className="actions-row" style={{ marginTop: "1rem" }}>
-            <button className="button secondary" type="button" onClick={handleCopyJoinCode}>
+            <button
+              className="button secondary table-action"
+              type="button"
+              onClick={handleCopyJoinCode}
+            >
               Copy
             </button>
             <button className="button ghost" type="button" onClick={() => setConfirmOpen(true)}>
@@ -464,7 +472,7 @@ export default function FacilityAdminPage() {
       <div className="card" style={{ marginTop: "1.5rem" }}>
         <div className="actions-row" style={{ justifyContent: "space-between" }}>
           <h3 style={{ margin: 0 }}>Staff list</h3>
-          <Link className="button secondary" href="/onboarding/join">
+          <Link className="button primary patient-cta" href="/onboarding/join">
             Add staff
           </Link>
         </div>
@@ -491,10 +499,19 @@ export default function FacilityAdminPage() {
           facility. Continue?
         </p>
         <div className="actions-row" style={{ marginTop: "1.5rem" }}>
-          <button className="button primary" type="button" onClick={handleRegenerate} disabled={regenerating}>
+          <button
+            className="button primary patient-cta"
+            type="button"
+            onClick={handleRegenerate}
+            disabled={regenerating}
+          >
             {regenerating ? "Regenerating..." : "Yes, regenerate"}
           </button>
-          <button className="button secondary" type="button" onClick={() => setConfirmOpen(false)}>
+          <button
+            className="button secondary table-action"
+            type="button"
+            onClick={() => setConfirmOpen(false)}
+          >
             Cancel
           </button>
         </div>
@@ -526,10 +543,14 @@ export default function FacilityAdminPage() {
           </p>
         ) : null}
         <div className="actions-row" style={{ marginTop: "1.5rem" }}>
-          <button className="button primary" type="button" onClick={savePin}>
+          <button className="button primary patient-cta" type="button" onClick={savePin}>
             Save PIN
           </button>
-          <button className="button secondary" type="button" onClick={() => setPinModalOpen(false)}>
+          <button
+            className="button secondary table-action"
+            type="button"
+            onClick={() => setPinModalOpen(false)}
+          >
             Cancel
           </button>
         </div>

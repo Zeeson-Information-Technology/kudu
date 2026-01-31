@@ -265,7 +265,7 @@ export default function LoginPage() {
         {!isLoading && facilityOptions.length > 0 && step === "facility" ? (
           <div style={{ marginTop: "1.5rem" }}>
             <button
-              className="button primary"
+              className="button primary patient-cta"
               type="button"
               onClick={() => setStep("user")}
             >
@@ -296,7 +296,7 @@ export default function LoginPage() {
                       </p>
                     </div>
                     <button
-                      className="button secondary"
+                      className="button secondary table-action"
                       type="button"
                       onClick={() => handleSelectUser(user)}
                     >
@@ -307,7 +307,7 @@ export default function LoginPage() {
               </ul>
             )}
             <div style={{ marginTop: "1rem" }}>
-              <Link className="button secondary" href="/onboarding/join">
+              <Link className="button secondary table-action" href="/onboarding/join">
                 Join this facility
               </Link>
               {step === "user" ? (
@@ -338,7 +338,7 @@ export default function LoginPage() {
 
         {!isLoading && facilityOptions.length === 0 ? (
           <div style={{ marginTop: "1.5rem" }}>
-            <Link className="button primary" href="/onboarding/create-facility">
+            <Link className="button primary patient-cta" href="/onboarding/create-facility">
               Create facility
             </Link>
           </div>

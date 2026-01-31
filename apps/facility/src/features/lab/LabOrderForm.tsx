@@ -162,10 +162,14 @@ export default function LabOrderForm({ patientId, encounterId }: LabOrderFormPro
       ) : null}
 
       <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
-        <button className="button primary" type="submit">
+        <button className="button primary patient-cta" type="submit">
           Create lab order
         </button>
-        <button className="button secondary" type="button" onClick={() => router.back()}>
+        <button
+          className="button secondary table-action"
+          type="button"
+          onClick={() => router.back()}
+        >
           Cancel
         </button>
       </div>

@@ -501,14 +501,14 @@ export default function DashboardPage() {
           </div>
           <div className="dashboard-hero__actions">
             {canRegisterPatients ? (
-              <a href="/dashboard/patients?new=1" className="button primary">
+              <a href="/dashboard/patients?new=1" className="button primary patient-cta">
                 Register patient
               </a>
             ) : null}
-            <a href="/dashboard/encounters" className="button secondary">
+            <a href="/dashboard/encounters" className="button secondary table-action">
               View encounters
             </a>
-            <a href="/dashboard/queues" className="button secondary">
+            <a href="/dashboard/queues" className="button secondary table-action">
               View queues
             </a>
           </div>
@@ -519,7 +519,7 @@ export default function DashboardPage() {
               <span className="profile-label">Join code</span>
               <span className="profile-value">{joinCode || "Unavailable"}</span>
               <div className="actions-row">
-                <button className="button secondary small" type="button" onClick={handleCopy}>
+                <button className="button secondary small table-action" type="button" onClick={handleCopy}>
                   Copy
                 </button>
                 <a className="button ghost small" href="/dashboard/facility">
@@ -547,7 +547,7 @@ export default function DashboardPage() {
           status="operational"
           uptime="99.9% (Last 30 days)"
           lastSync="Just now"
-          actions={<button className="button secondary small">Force Sync</button>}
+          actions={<button className="button secondary small table-action">Force Sync</button>}
         />
       </div>
 
@@ -605,7 +605,7 @@ export default function DashboardPage() {
                   </ul>
                 )}
                 <div className="actions-row" style={{ marginTop: "0.75rem" }}>
-                  <a className="button secondary small" href="/dashboard/facility">
+                  <a className="button secondary small table-action" href="/dashboard/facility">
                     Manage staff
                   </a>
                 </div>
@@ -662,25 +662,25 @@ export default function DashboardPage() {
         <h2 className="section-heading">Quick Actions</h2>
         <div className="quick-actions">
           {canRegisterPatients ? (
-            <a href="/dashboard/patients/new" className="button primary">
+            <a href="/dashboard/patients/new" className="button primary patient-cta">
               Register New Patient
             </a>
           ) : null}
-          <a href="/dashboard/encounters" className="button secondary">
+          <a href="/dashboard/encounters" className="button secondary table-action">
             View Encounters
           </a>
           {canViewLab ? (
-            <a href="/dashboard/lab" className="button secondary">
+            <a href="/dashboard/lab" className="button secondary table-action">
               Lab Orders
             </a>
           ) : null}
           {canViewPharmacy ? (
-            <a href="/dashboard/pharmacy" className="button secondary">
+            <a href="/dashboard/pharmacy" className="button secondary table-action">
               Pharmacy
             </a>
           ) : null}
           {isAdmin ? (
-            <a href="/dashboard/admin" className="button secondary">
+            <a href="/dashboard/admin" className="button secondary table-action">
               Settings
             </a>
           ) : null}

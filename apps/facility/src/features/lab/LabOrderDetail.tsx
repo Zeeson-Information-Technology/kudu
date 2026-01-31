@@ -281,7 +281,7 @@ export default function LabOrderDetail({ orderId }: LabOrderDetailProps) {
                 </div>
               ))}
             </div>
-            <button className="button secondary" type="button" onClick={addRow}>
+            <button className="button secondary table-action" type="button" onClick={addRow}>
               Add row
             </button>
           </div>
@@ -294,10 +294,14 @@ export default function LabOrderDetail({ orderId }: LabOrderDetailProps) {
         ) : null}
 
         <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
-          <button className="button primary" type="submit">
+          <button className="button primary patient-cta" type="submit">
             Save results
           </button>
-          <button className="button secondary" type="button" onClick={() => router.back()}>
+          <button
+            className="button secondary table-action"
+            type="button"
+            onClick={() => router.back()}
+          >
             Cancel
           </button>
         </div>

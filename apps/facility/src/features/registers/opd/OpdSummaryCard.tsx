@@ -26,10 +26,14 @@ export default function OpdSummaryCard({
           </p>
         </div>
         <div className="actions-row no-print">
-          <button className="button secondary" type="button" onClick={onPrint}>
+          <button className="button secondary table-action" type="button" onClick={onPrint}>
             Print
           </button>
-          <button className="button secondary" type="button" onClick={onExportSummary}>
+          <button
+            className="button secondary table-action"
+            type="button"
+            onClick={onExportSummary}
+          >
             Export summary CSV
           </button>
         </div>

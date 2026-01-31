@@ -62,7 +62,7 @@ export const DictatedField = ({
         </label>
         {showDictation && dictation?.supported ? (
           <button
-            className="button secondary small"
+            className="button secondary small table-action"
             type="button"
             onClick={dictation.onToggle}
             aria-label={

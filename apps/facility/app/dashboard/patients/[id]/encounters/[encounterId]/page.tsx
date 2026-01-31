@@ -84,7 +84,7 @@ export default function EncounterViewPage({ params }: EncounterViewProps) {
           <h2 id="encounter-title">Encounter details</h2>
           <p>{error || "Loading encounter..."}</p>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href={`/dashboard/patients/${params.id}`} className="button secondary">
+            <Link href={`/dashboard/patients/${params.id}`} className="button secondary table-action">
               <span className="icon" aria-hidden="true">
                 <svg viewBox="0 0 16 16" width="16" height="16" role="presentation">
                   <path d="M9.5 3.5 5 8l4.5 4.5" />
@@ -126,19 +126,19 @@ export default function EncounterViewPage({ params }: EncounterViewProps) {
         <div style={{ marginTop: "1rem", display: "flex", gap: "0.75rem" }}>
           <Link
             href={`/dashboard/patients/${params.id}/encounters/${encounter.encounterId}/edit`}
-            className="button secondary"
+            className="button secondary table-action"
           >
             Edit encounter
           </Link>
           <Link
             href={`/dashboard/patients/${params.id}/encounters/${encounter.encounterId}/lab/new`}
-            className="button secondary"
+            className="button secondary table-action"
           >
             Create lab order
           </Link>
           <Link
             href={`/dashboard/patients/${params.id}/encounters/${encounter.encounterId}/pharmacy/new`}
-            className="button secondary"
+            className="button secondary table-action"
           >
             Create prescription
           </Link>
@@ -228,7 +228,7 @@ export default function EncounterViewPage({ params }: EncounterViewProps) {
       </div>
 
       <div style={{ marginTop: "1.5rem" }}>
-        <Link href={`/dashboard/patients/${params.id}`} className="button secondary">
+        <Link href={`/dashboard/patients/${params.id}`} className="button secondary table-action">
           <span className="icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" width="16" height="16" role="presentation">
               <path d="M9.5 3.5 5 8l4.5 4.5" />

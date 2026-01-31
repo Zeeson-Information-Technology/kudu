@@ -114,14 +114,14 @@ export default function ConflictsPage() {
                       <div className="actions-row">
                         <button
                           type="button"
-                          className="button secondary"
+                          className="button secondary table-action"
                           onClick={() => handleCopy(row)}
                         >
                           Copy JSON
                         </button>
                         {row.id.startsWith("patient:") ? (
                           <Link
-                            className="button secondary"
+                            className="button secondary table-action"
                             href={`/dashboard/patients/${row.id.replace("patient:", "")}`}
                           >
                             Open patient

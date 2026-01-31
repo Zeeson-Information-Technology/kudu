@@ -125,12 +125,15 @@ export default function QueueListPage() {
                       <td>{item.flags?.pharmacyPending ? "Yes" : "No"}</td>
                       <td>
                         <div className="actions-row">
-                          <Link className="button secondary" href={`/dashboard/patients/${item.patientId}`}>
+                          <Link
+                            className="button secondary table-action"
+                            href={`/dashboard/patients/${item.patientId}`}
+                          >
                             Open patient
                           </Link>
                           {!item.encounterId ? (
                             <Link
-                              className="button secondary"
+                              className="button secondary table-action"
                               href={`/dashboard/patients/${item.patientId}/encounters/new`}
                             >
                               Start new encounter

@@ -26,7 +26,7 @@ export default function PrintCopyActions({ value }: PrintCopyActionsProps) {
 
   return (
     <div className="actions-row no-print">
-      <button className="button secondary" type="button" onClick={handlePrint}>
+      <button className="button secondary table-action" type="button" onClick={handlePrint}>
         Print
       </button>
       <button className="button primary" type="button" onClick={handleCopy}>

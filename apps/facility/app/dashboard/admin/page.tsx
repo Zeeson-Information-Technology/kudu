@@ -116,19 +116,19 @@ export default function AdminPage() {
                   <td>Dr. Adekunle Oluwaseun</td>
                   <td><span className="role-badge">Facility Head</span></td>
                   <td>Today, 9:30 AM</td>
-                  <td><button className="button secondary small">Edit</button></td>
+                  <td><button className="button secondary small table-action">Edit</button></td>
                 </tr>
                 <tr>
                   <td>Nurse Chisom Ejiofor</td>
                   <td><span className="role-badge">Nurse</span></td>
                   <td>Today, 8:15 AM</td>
-                  <td><button className="button secondary small">Edit</button></td>
+                  <td><button className="button secondary small table-action">Edit</button></td>
                 </tr>
                 <tr>
                   <td>Chidi Obi</td>
                   <td><span className="role-badge">Pharmacist</span></td>
                   <td>Yesterday, 5:45 PM</td>
-                  <td><button className="button secondary small">Edit</button></td>
+                  <td><button className="button secondary small table-action">Edit</button></td>
                 </tr>
               </tbody>
             </table>
@@ -156,7 +156,7 @@ export default function AdminPage() {
                 <p className="setting-value">KD-2024-001234</p>
               </div>
             </div>
-            <button className="button secondary">Edit Settings</button>
+            <button className="button secondary table-action">Edit Settings</button>
           </div>
 
           <div className="card">
@@ -175,7 +175,7 @@ export default function AdminPage() {
                 <p className="setting-value">AES-256 at rest and in transit</p>
               </div>
             </div>
-            <button className="button secondary">Configure Sync</button>
+            <button className="button secondary table-action">Configure Sync</button>
           </div>
         </div>
       </div>
@@ -206,10 +206,10 @@ export default function AdminPage() {
       <div className="dashboard-section">
         <h2 className="section-heading">Administration</h2>
         <div className="quick-actions">
-          <button className="button secondary">Manage Users</button>
-          <button className="button secondary">Configure Alerts</button>
-          <button className="button secondary">Export Audit Log</button>
-          <button className="button secondary">System Maintenance</button>
+          <button className="button secondary table-action">Manage Users</button>
+          <button className="button secondary table-action">Configure Alerts</button>
+          <button className="button secondary table-action">Export Audit Log</button>
+          <button className="button secondary table-action">System Maintenance</button>
         </div>
       </div>
     </main>
