@@ -708,6 +708,29 @@ input[type="number"] {
   color: #ffffff;
 }
 
+.button.patient-cta {
+  padding: 0.85rem 1.6rem;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 14px 28px rgba(15, 109, 106, 0.22);
+}
+
+.button.table-action {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+}
+
+.button.catalog-cta {
+  box-shadow: 0 12px 24px rgba(15, 109, 106, 0.22);
+}
+
+.button.catalog-cta svg {
+  stroke: currentColor;
+  stroke-width: 1.6;
+  fill: none;
+}
+
 .button.secondary {
   background: transparent;
   color: var(--color-primary);
@@ -1215,7 +1238,9 @@ input[type="number"] {
   margin-top: 1.5rem;
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   background: #ffffff;
 }
 
@@ -1223,6 +1248,7 @@ input[type="number"] {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
+  min-width: 720px;
 }
 
 .registry-table th,
@@ -1672,6 +1698,14 @@ input[type="number"] {
   background: #ffffff;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.dashboard-hero__card:hover {
+  border-color: rgba(15, 109, 106, 0.5);
+  box-shadow: 0 10px 20px rgba(15, 109, 106, 0.12);
+  transform: translateY(-1px);
 }
 
 .dashboard-hero__aside {
@@ -1714,8 +1748,9 @@ input[type="number"] {
 }
 
 .metric-card:hover {
+  border-color: rgba(15, 109, 106, 0.5);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 14px 28px rgba(15, 109, 106, 0.18);
 }
 
 .metric-card__header {
@@ -1774,6 +1809,14 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.activity-card:hover {
+  border-color: rgba(15, 109, 106, 0.5);
+  box-shadow: 0 16px 30px rgba(15, 109, 106, 0.16);
+  transform: translateY(-2px);
 }
 
 .activity-card__header {
@@ -1871,6 +1914,14 @@ input[type="number"] {
   justify-content: space-between;
   gap: var(--spacing-lg);
   border: 1px solid rgba(13, 27, 42, 0.08);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.health-status:hover {
+  border-color: rgba(15, 109, 106, 0.5);
+  box-shadow: 0 14px 28px rgba(15, 109, 106, 0.16);
+  transform: translateY(-1px);
 }
 
 .health-status__content {
@@ -2009,7 +2060,8 @@ input[type="number"] {
 }
 
 .card:hover {
-  box-shadow: var(--shadow-sm);
+  border-color: rgba(15, 109, 106, 0.6);
+  box-shadow: 0 16px 32px rgba(15, 109, 106, 0.18);
 }
 
 .card__title {
@@ -2396,6 +2448,16 @@ input[type="number"] {
   .patients-search {
     flex: 1;
     min-width: 200px;
+  }
+
+  .registry-table {
+    min-width: 560px;
+    font-size: 0.9rem;
+  }
+
+  .registry-table th,
+  .registry-table td {
+    padding: 0.65rem 0.8rem;
   }
 
   .profile-grid {

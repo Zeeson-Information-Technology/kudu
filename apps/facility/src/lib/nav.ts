@@ -34,6 +34,12 @@ export const dashboardNav: NavItem[] = [
     roles: ["Pharmacy", "Clinician", "Admin"]
   },
   {
+    label: "Drug Catalog",
+    href: "/dashboard/pharmacy/catalog",
+    roles: ["Pharmacy", "Admin"],
+    section: "Pharmacy"
+  },
+  {
     label: "Queues",
     href: "/dashboard/queues",
     roles: ["Clinician", "Nurse", "Records", "Lab", "Pharmacy", "Admin"]

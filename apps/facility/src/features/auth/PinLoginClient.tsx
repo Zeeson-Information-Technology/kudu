@@ -110,10 +110,14 @@ export default function PinLoginClient({ userId }: PinLoginClientProps) {
             </div>
           ) : null}
           <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
-            <button className="button primary" type="submit">
+            <button className="button primary patient-cta" type="submit">
               Continue
             </button>
-            <button className="button secondary" type="button" onClick={() => router.push("/login")}>
+            <button
+              className="button secondary table-action"
+              type="button"
+              onClick={() => router.push("/login")}
+            >
               Back
             </button>
           </div>

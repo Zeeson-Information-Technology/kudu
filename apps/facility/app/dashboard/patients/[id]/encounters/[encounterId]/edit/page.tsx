@@ -85,7 +85,7 @@ export default function EditEncounterPage({ params }: EditEncounterPageProps) {
           <h2 id="encounter-edit-title">Edit encounter</h2>
           <p>{error || "Loading encounter..."}</p>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href={`/dashboard/patients/${params.id}`} className="button secondary">
+            <Link href={`/dashboard/patients/${params.id}`} className="button secondary table-action">
               Back to patient
             </Link>
           </div>

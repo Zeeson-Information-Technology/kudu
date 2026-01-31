@@ -302,19 +302,19 @@ export default function PatientProfilePage({
               <div className="actions-row">
                 <Link
                   href={`/dashboard/patients/${params.id}/encounters/${encounter.id}/lab/new`}
-                  className="button secondary"
+                  className="button secondary table-action"
                 >
                   Create lab order
                 </Link>
                 <Link
                   href={`/dashboard/patients/${params.id}/encounters/${encounter.id}/pharmacy/new`}
-                  className="button secondary"
+                  className="button secondary table-action"
                 >
                   Create prescription
                 </Link>
                 <Link
                   href={`/dashboard/patients/${params.id}/encounters/${encounter.id}`}
-                  className="button secondary"
+                  className="button secondary table-action"
                 >
                   View
                 </Link>
@@ -361,7 +361,7 @@ export default function PatientProfilePage({
           <h2 id="patient-title">Patient not found</h2>
           <p>{loadError}</p>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href="/dashboard/patients" className="button secondary">
+            <Link href="/dashboard/patients" className="button secondary table-action">
               <span className="icon" aria-hidden="true">
                 <svg viewBox="0 0 16 16" width="16" height="16" role="presentation">
                   <path d="M9.5 3.5 5 8l4.5 4.5" />
@@ -395,7 +395,7 @@ export default function PatientProfilePage({
               {displayName}
             </h2>
           </div>
-          <Link href="/dashboard/patients" className="button secondary">
+          <Link href="/dashboard/patients" className="button secondary table-action">
             <span className="icon" aria-hidden="true">
               <svg viewBox="0 0 16 16" width="16" height="16" role="presentation">
                 <path d="M9.5 3.5 5 8l4.5 4.5" />
@@ -438,7 +438,10 @@ export default function PatientProfilePage({
       <div className="card" style={{ marginTop: "1.5rem" }}>
         <div className="actions-row" style={{ justifyContent: "space-between" }}>
           <h3 style={{ margin: 0 }}>Encounters</h3>
-          <Link href={`/dashboard/patients/${params.id}/encounters/new`} className="button primary">
+          <Link
+            href={`/dashboard/patients/${params.id}/encounters/new`}
+            className="button primary patient-cta"
+          >
             Start new encounter
           </Link>
         </div>

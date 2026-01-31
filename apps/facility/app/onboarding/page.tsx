@@ -32,10 +32,10 @@ export default function OnboardingPage() {
               for testing.
             </p>
             <div className="onboarding-panel__actions">
-              <a className="button primary" href="/onboarding/create-facility">
+              <a className="button primary patient-cta" href="/onboarding/create-facility">
                 Create facility
               </a>
-              <a className="button secondary" href="/onboarding/join">
+              <a className="button secondary table-action" href="/onboarding/join">
                 Join with code
               </a>
             </div>

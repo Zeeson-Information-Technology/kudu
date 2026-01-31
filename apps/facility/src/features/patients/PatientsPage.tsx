@@ -128,7 +128,7 @@ export default function PatientsPage() {
             <button
               ref={newButtonRef}
               type="button"
-              className="button primary"
+              className="button primary patient-cta"
               onClick={openModal}
               aria-haspopup="dialog"
             >
@@ -175,7 +175,7 @@ export default function PatientsPage() {
                     <td>
                       <button
                         type="button"
-                        className="button secondary"
+                        className="button secondary table-action"
                         onClick={() => router.push(`/dashboard/patients/${patient.patientId}`)}
                       >
                         View

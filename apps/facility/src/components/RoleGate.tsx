@@ -47,7 +47,7 @@ export function RoleGate({
           <h2 id="access-title">{title}</h2>
           <p>{message}</p>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href={backHref} className="button secondary">
+            <Link href={backHref} className="button secondary table-action">
               <span className="icon" aria-hidden="true">
                 <svg viewBox="0 0 16 16" width="16" height="16" role="presentation">
                   <path d="M9.5 3.5 5 8l4.5 4.5" />

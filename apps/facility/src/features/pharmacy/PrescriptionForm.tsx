@@ -311,7 +311,7 @@ export default function PrescriptionForm({ patientId, encounterId }: Prescriptio
                   onChange={(event) => updateItem(index, "quantity", event.target.value)}
                 />
                 <button
-                  className="button secondary"
+                  className="button secondary table-action"
                   type="button"
                   onClick={() => removeItem(index)}
                   disabled={items.length === 1}
@@ -321,7 +321,7 @@ export default function PrescriptionForm({ patientId, encounterId }: Prescriptio
               </div>
             ))}
           </div>
-          <button className="button secondary" type="button" onClick={addItem}>
+          <button className="button secondary table-action" type="button" onClick={addItem}>
             Add item
           </button>
         </div>
@@ -350,10 +350,14 @@ export default function PrescriptionForm({ patientId, encounterId }: Prescriptio
       ) : null}
 
       <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem" }}>
-        <button className="button primary" type="submit">
+        <button className="button primary patient-cta" type="submit">
           Create prescription
         </button>
-        <button className="button secondary" type="button" onClick={() => router.back()}>
+        <button
+          className="button secondary table-action"
+          type="button"
+          onClick={() => router.back()}
+        >
           Cancel
         </button>
       </div>

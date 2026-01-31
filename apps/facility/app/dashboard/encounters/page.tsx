@@ -149,7 +149,7 @@ export default function EncountersPage() {
                   </div>
                 </td>
         <td>
-          <Link className="button secondary" href={`/dashboard/patients/${row.patientId}`}>
+          <Link className="button secondary table-action" href={`/dashboard/patients/${row.patientId}`}>
             View patient
           </Link>
         </td>
@@ -183,7 +183,7 @@ export default function EncountersPage() {
             <h3 style={{ margin: 0 }}>Encounter list</h3>
             <p className="form-helper">Select a patient to start an encounter.</p>
           </div>
-          <Link className="button primary" href="/dashboard/patients">
+          <Link className="button primary patient-cta" href="/dashboard/patients">
             Start new encounter
           </Link>
         </div>

@@ -86,7 +86,12 @@ export default function PharmacyQueuePage() {
         <h2 id="pharmacy-title">Pharmacy queue</h2>
         <p>Track prescriptions and mark them as dispensed.</p>
         <div style={{ marginTop: "1rem" }}>
-          <Link href="/dashboard/pharmacy/catalog" className="button secondary">
+          <Link href="/dashboard/pharmacy/catalog" className="button primary catalog-cta">
+            <span className="icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="16" height="16" role="presentation">
+                <path d="M3 4h10M3 8h10M3 12h6" />
+              </svg>
+            </span>
             Manage drug catalog
           </Link>
         </div>
@@ -151,7 +156,10 @@ export default function PharmacyQueuePage() {
                       <td>{rx.items.length}</td>
                       <td>{rx.status}</td>
                       <td>
-                        <Link className="button secondary" href={`/dashboard/pharmacy/prescriptions/${rx.prescriptionId}`}>
+                        <Link
+                          className="button secondary table-action"
+                          href={`/dashboard/pharmacy/prescriptions/${rx.prescriptionId}`}
+                        >
                           View
                         </Link>
                       </td>

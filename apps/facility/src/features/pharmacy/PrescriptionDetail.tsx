@@ -236,10 +236,14 @@ export default function PrescriptionDetail({ prescriptionId }: { prescriptionId:
           />
         </div>
         <div style={{ marginTop: "1rem", display: "flex", gap: "0.75rem" }}>
-          <button className="button primary" type="button" onClick={handleDispense}>
+          <button className="button primary patient-cta" type="button" onClick={handleDispense}>
             Mark as dispensed
           </button>
-          <button className="button secondary" type="button" onClick={() => router.back()}>
+          <button
+            className="button secondary table-action"
+            type="button"
+            onClick={() => router.back()}
+          >
             Cancel
           </button>
         </div>
